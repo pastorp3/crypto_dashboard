@@ -6,12 +6,14 @@ class CoinsController < ApplicationController
 
   before_action :load_coins_value, only: :index
   before_action :load_wallet, only: :index
+  before_action :validate_quantity, only: :invest
 
   def index
   end
 
   def calculator
     coin_name = calculator_params[:coin]
+ 
     monthly_rate = get_monthly_rate(coin_name) / 100.0
     coin_value = get_coin_value(Coin::COIN_CODE[coin_name])
     
@@ -69,5 +71,12 @@ class CoinsController < ApplicationController
 
   def load_wallet
     @wallet = Wallet.last
+  end
+
+  def validate_quantity
+    if calculator_params[:quantity].to_f <= 0
+      render json: { error: 'Investment must  be a positive number bigger than 0.' }, status: :unprocessable_entity
+      return
+    end
   end
 end

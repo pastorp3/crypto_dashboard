@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
   investButton.addEventListener('click', function () {
     const coinSelect = document.getElementById('coin-select');
     const quantityInput = document.getElementById('quantity-input');
-
+    const resultContainer = document.getElementById('result-container');
     const coin = coinSelect.value;
     const quantity = quantityInput.value;
 
@@ -78,7 +78,14 @@ document.addEventListener('DOMContentLoaded', function () {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Investment successful:', data);
+        if ( data.error) {
+          resultContainer.innerHTML = `
+          <p class="mt-3">${data.error}</p>
+        `;} else {
+          resultContainer.innerHTML = `
+          <p class="mt-3">Investment successful!</p>
+        `;}
+        
         updateWalletInvestment();
       })
       .catch(error => console.error('Investment error:', error));

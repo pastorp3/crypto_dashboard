@@ -9,11 +9,11 @@ class WalletController < ApplicationController
 
   def download_data
     data = JSON.parse(params[:data])
-    tab = JSON.parse(params[:tab])
+    tab = params[:tab].delete('"') 
 
     respond_to do |format|
-      format.csv { send_data generate_csv(data), filename: "#{tab}_data.csv" }
-      format.json { send_data data, filename: "#{tab}_data.json" }
+      format.csv { send_data generate_csv(data, tab), filename: "#{tab}_data.csv" }
+      format.json { send_data params[:data], filename: "#{tab}_data.json" }
     end
   end
 
@@ -23,8 +23,8 @@ class WalletController < ApplicationController
     Wallet.last.coins.total_investment(coin)
   end
 
-  def generate_csv(data)
-    if JSON.parse(params[:tab]) == 'wallet'
+  def generate_csv(data, tab)
+    if tab == 'wallet'
       csv_data = "Name,Price,Investment,Investment Value\n"
       csv_data += "Bitcoin,$#{data['Bitcoin']['value']},#{data['Bitcoin']['investment']},#{data['Bitcoin']['investment_value']}\n"
       csv_data += "Ether,$#{data['Ether']['value']},#{data['Ether']['investment']},#{data['Ether']['investment_value']}\n"

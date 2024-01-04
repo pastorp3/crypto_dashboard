@@ -11,6 +11,6 @@ module MonthlyRate
       coins_data[row[0]] = row[1].to_i
     end
 
-    coins_data[coin]
+    coins_data[coin] || 0
   end
 end
