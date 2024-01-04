@@ -1,0 +1,8 @@
+<div style="display: flex; flex-direction: row;">
+  <div style="flex-grow: 1; flex-shrink: 1;">
+    <%= render partial: 'coin_info', locals: { coin: coin, symbol: symbol } %>
+  </div>
+  <div style="flex-grow: 1; flex-shrink: 1;">
+    <p style="font-size: 0.875rem; color: #666;">$ <%= value %></p>
+  </div>
+</div>

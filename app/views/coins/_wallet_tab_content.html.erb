@@ -1,0 +1,14 @@
+<div style="display: flex; flex-direction: row;">
+  <div style="flex-grow: 1; flex-shrink: 1;">
+    <%= render partial: 'coin_info', locals: { coin: coin, symbol: symbol } %>
+  </div>
+  <div style="flex-grow: 1; flex-shrink: 1; text-align: center;">
+    <p id='<%= "#{symbol.downcase}-value" %>' style="font-size: 0.875rem; color: #666;">$ <%= value %></p>
+  </div>
+  <div style="flex-grow: 1; flex-shrink: 1; text-align: center;">
+    <p id='<%= "#{symbol.downcase}-investment" %>' style="font-size: 0.875rem; color: #666;">0</p>
+  </div>
+  <div style="flex-grow: 1; flex-shrink: 1; text-align: center;">
+    <p id='<%= "#{symbol.downcase}-investment-total" %>' style="font-size: 0.875rem; color: #666;">0</p>
+  </div>
+</div>

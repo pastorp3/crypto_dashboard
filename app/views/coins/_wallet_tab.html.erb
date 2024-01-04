@@ -1,0 +1,22 @@
+<div style="display: flex; flex-direction: row;padding-bottom: 25px; padding-top: 50px;">
+  <div style="flex-grow: 1; flex-shrink: 1;">
+    <h2 style="font-size: 1.25rem;">Name</h2>
+  </div>
+  <div style="flex-grow: 1; flex-shrink: 1;text-align: right;">
+    <h2 style="font-size: 1.25rem;">Price</h2>
+  </div>
+  <div style="flex-grow: 1; flex-shrink: 1;text-align: right;">
+    <h2 style="font-size: 1.25rem;">Investment</h2>
+  </div>
+  <div style="flex-grow: 1; flex-shrink: 1;text-align: right;">
+    <h2 style="font-size: 1.25rem;">Investment Value</h2>
+  </div>
+</div>
+
+<%= render partial: 'wallet_tab_content', locals: { coin: 'Bitcoin', symbol: 'BTC', value: @coins_value.btc } %>
+<%= render partial: 'wallet_tab_content', locals: { coin: 'Ether', symbol: 'ETH', value: @coins_value.eth } %>
+<%= render partial: 'wallet_tab_content', locals: { coin: 'Cardano', symbol: 'ADA', value: @coins_value.ada } %>
+
+<div class="mt-4">
+  <%= render partial: 'download_buttons', locals: { tab: 'wallet' } %>
+</div>

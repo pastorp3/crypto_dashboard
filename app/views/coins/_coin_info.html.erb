@@ -1,0 +1,11 @@
+<div style="display: flex; align-items: center; flex-direction: row;">
+  <div style="position: relative; margin-right: 8px;">
+    <div style="flex-grow: 0; flex-shrink: 0; height: 32px; width: 32px; position: relative; overflow: hidden; border-radius: 1000px;">
+      <img alt="<%= "#{coin} Logo" %>" src="<%= image_path("coin_logos/#{coin.downcase}_logo.png") %>" width="32" height="32" style="border-radius: 1000px;">
+    </div>
+  </div>
+  <div style="margin-right: 8px;">
+    <h2 style="font-size: 1rem;"><%= coin %></h2>
+    <p style="font-size: 0.875rem; color: #666;"><%= symbol %></p>
+  </div>
+</div>
