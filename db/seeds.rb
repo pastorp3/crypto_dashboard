@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+csv_path = Rails.root.join('public', 'csv', 'data.csv')
+
+csv_data = CSV.read(csv_path).drop(1)
+
+wallet = Wallet.create
+
+csv_data.each do |row|
+  wallet.coins.create(name: row.first, total: row.last.to_f)
+end
+
+
