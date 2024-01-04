@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+ root to: 'coins#index'
+
+ get '/calculator', to: 'coins#calculator'
+
+ post '/invest', to: 'coins#invest'
+
+ get '/wallet_investment', to: 'wallet#investment'
+ get '/wallet/download_data', to: 'wallet#download_data', as: 'download_wallet_data'
+
 end
