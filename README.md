@@ -1,24 +1,36 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup Instructions
 
-Things you may want to cover:
+### Prerequisites
+- Ruby "3.1.2"
+- Rails "7.0.8"
 
-* Ruby version
+### Getting Started
 
-* System dependencies
+1. **Clone the Repository:**
+   ```bash
+   git clone [https://github.com/your-username/weather-api.git](https://github.com/pastorp3/crypto_dashboard.git)
 
-* Configuration
+2. **Install Dependencies:**
+   ```bash
+   bundle install
+   yarn install
 
-* Database creation
+2. **Setup Database:**
+   ```bash
+   rails db:create
+   rails db:migrate
+   rails db:seed
+   
+3. **Add your api key:**
 
-* Database initialization
+   open app/services/fetch_coin_value.rb in your local and add your key  after ApiKey=
 
-* How to run the test suite
+5. **Start the Rails Server:**
+   ```bash
+   rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+6. **Open App in your local server:**
+   ```bash
+   http://localhost:3000
 
-* Deployment instructions
-
-* ...
